@@ -1,6 +1,6 @@
 from django.urls.conf import path
-from .views import list_department
+from .views import information_department
 
 urlpatterns = [
-    path('', list_department, name='list_department') 
+    path('', information_department, name='information_department') 
 ]

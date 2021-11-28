@@ -1,0 +1,16 @@
+{% extends 'employees/index.html' %}
+
+{% block head_block %}
+<title>Listado de Empleados</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1>Crear Empleados</h1>
+
+        <form action={% url 'url-crear-empleados' %} method="POST">
+            {% csrf_token %}
+            {{formulario.as_table}}
+            <input type="submit" value="Crear"/>
+        </form>
+{% endblock body_block %}
+

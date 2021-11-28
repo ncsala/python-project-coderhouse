@@ -7,16 +7,17 @@ class Employee(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     position = models.CharField(max_length=50)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    # department = models.ForeignKey(Department, on_delete=models.CASCADE)
     
     def __str__(self):
-        return str(self.id) + '-' + self.first_name + '-' + self.last.name
+        return f'Empleado {self.id} {self.first_name} {self.last_name}' 
     
 class Chief(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    # department = models.ForeignKey(Department, on_delete=models.CASCADE)
     
     def __str__(self):
-        return str(self.id) + '-' + self.first_name + '-' + self.last.name
+        return f'Jefe {self.id} {self.first_name} {self.last_name}' 
+
     
