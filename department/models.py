@@ -6,3 +6,5 @@ class Department(models.Model):
     short_name = models.CharField(max_length=20, blank=True)
     anulate = models.BooleanField(default=False)
     
+    def __str__(self):
+        return str(self.id) + '-' + self.name + '-' + self.short_name  
