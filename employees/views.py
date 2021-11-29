@@ -5,7 +5,7 @@ from .models import Employee, Chief
 
 # Create your views here.
 def information_employees(request):
-    return render(request,'employees/index.html', {})
+    return render(request,'employees/home_employees.html', {})
 
 def list_employees(request):
     empleados = None

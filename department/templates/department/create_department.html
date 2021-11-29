@@ -1,13 +1,13 @@
-{% extends 'employees/home_employees.html' %}
+{% extends 'department/home_department.html' %}
 
 {% block head_block %}
-<title>Listado de Empleados</title>
+<title>Listado de Departamentos</title>
 {% endblock head_block %}
 
 {% block body_block %}
-    <h1>Crear Empleados</h1>
+    <h1>Crear Departamentos</h1>
 
-        <form action={% url 'url-crear-empleados' %} method="POST">
+        <form action={% url 'url-crear-departamentos' %} method="POST">
             {% csrf_token %}
             {{formulario.as_table}}
             <input type="submit" value="Crear"/>

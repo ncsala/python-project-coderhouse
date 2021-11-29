@@ -5,4 +5,4 @@ from django.shortcuts import redirect, render
 
 
 def inicio(request):
-    return render(request,'inicio/a.html', {})
+    return render(request,'inicio/index.html', {})

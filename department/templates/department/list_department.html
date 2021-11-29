@@ -1,14 +1,14 @@
-{% extends 'employees/home_employees.html' %}
+{% extends 'department/home_department.html' %}
 
 {% block head_block %}
-<title>Listado de Jefes</title>
+<title>Listado de Departamentos</title>
 {% endblock head_block %}
 
 {% block body_block %}
 
     <h1>Listado Jefes</h1>
 
-    <form form class="formulario" action={% url 'url-jefes' %} method="GET">
+    <form form class="formulario" action={% url 'url-departamentos' %} method="GET">
         <fieldset class="formulario__fieldset">
 
             <legend class="formulario__legend">Complete todos los campos</legend>
@@ -32,20 +32,19 @@
 
     <ul>
 
-        {% if jefes %} 
-            {% for jefe in jefes %}
+        {% if departamentos %} 
+            {% for departamento in departamentos %}
                 <li>
-                    {{jefe}}
+                    {{departamento}}
                 </li>
             {% endfor %}
         {% elif error%}
             <h3>{{error}}</h3>
         {% else %}
-            <h3>No se encontraron jefes con ese nombre.</h3>
+            <h3>No se encontraron departamentos con ese nombre.</h3>
         {% endif %}
 
     </ul> 
-
 
 {% endblock body_block %}
 

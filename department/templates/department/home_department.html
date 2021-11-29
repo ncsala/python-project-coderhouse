@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head_block %}
-    <title>Inicio Empleados</title>
+    <title>Inicio Departamentos</title>
     {% endblock head_block %}
 </head>
+
 <body>
 
     <nav>
-        <a href={% url 'url-jefes' %}>Listado Jefes</a>
-        <a href={% url 'url-crear-jefes' %}>Crear Jefes</a>
-        <a href={% url 'url-empleados' %}>Listado Empleados</a>
-        <a href={% url 'url-crear-empleados' %}>Crear Empleados</a>
+        <a href={% url 'url-inicio' %}>HOME</a>
+        <a href={% url 'url-departamentos' %}>Listado Departamentos</a>
+        <a href={% url 'url-crear-departamentos' %}>Crear Departamentos</a>
     </nav>
 
     {% block body_block %}
-    <h1>Pagina inicio Empleadooos!</h1>
+    <h1>Pagina inicio Departamentooos!</h1>
     {% endblock body_block %}
     
     
