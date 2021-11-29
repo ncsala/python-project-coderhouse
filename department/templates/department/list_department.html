@@ -6,45 +6,47 @@
 
 {% block body_block %}
 
-    <h1>Listado Jefes</h1>
-
-    <form form class="formulario" action={% url 'url-departamentos' %} method="GET">
-        <fieldset class="formulario__fieldset">
-
-            <legend class="formulario__legend">Complete todos los campos</legend>
-
-            <div class="formulario__contenedorCampos">
-
-                <div class="formulario__contenedorCampos__campo">
-                    <label class="formulario__campo__label" for="numero">Numero</label>
-                    <input class="formulario__campo__inputTexto" type="text" name="nombre_buscado" placeholder="Ingrese numero a buscar"
-                        id="nombre_buscado">
+    
+        <h1>Listado Departamentos</h1>
+        
+        <form form class="formulario" action={% url 'url-departamentos' %} method="GET">
+            <fieldset class="formulario__fieldset">
+        
+                <legend class="formulario__legend">Complete todos los campos</legend>
+        
+                <div class="formulario__contenedorCampos">
+        
+                    <div class="formulario__contenedorCampos__campo">
+                        <label class="formulario__campo__label" for="numero">Numero</label>
+                        <input class="formulario__campo__inputTexto" type="text" name="nombre_buscado" placeholder="Ingrese numero a buscar"
+                            id="nombre_buscado">
+                    </div>
+        
+        
                 </div>
-
-
-            </div>
-            
-            <div class="contenedorBotones">
-                <button class="contenedorBotones__boton contenedorBotones__boton--widht100" type="submit">Buscar</button>
-            </div>
-        </fieldset>
-    </form> 
-
-    <ul>
-
-        {% if departamentos %} 
-            {% for departamento in departamentos %}
-                <li>
-                    {{departamento}}
-                </li>
-            {% endfor %}
-        {% elif error%}
-            <h3>{{error}}</h3>
-        {% else %}
-            <h3>No se encontraron departamentos con ese nombre.</h3>
-        {% endif %}
-
-    </ul> 
+                
+                <div class="contenedorBotones">
+                    <button class="contenedorBotones__boton contenedorBotones__boton--widht100" type="submit">Buscar</button>
+                </div>
+            </fieldset>
+        </form> 
+        
+        <ul>
+        
+            {% if departamentos %} 
+                {% for departamento in departamentos %}
+                    <li>
+                        {{departamento}}
+                    </li>
+                {% endfor %}
+            {% elif error%}
+                <h3>{{error}}</h3>
+            {% else %}
+                <h3>No se encontraron departamentos con ese nombre.</h3>
+            {% endif %}
+        
+        </ul> 
+        
 
 {% endblock body_block %}
 

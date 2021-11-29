@@ -3,7 +3,7 @@
 <head>
     {% load static %}
 
-    <link href={% static 'department/css/styles.css' %} rel="stylesheet" />
+    <link href={% static 'inicio/css/styles.css' %} rel="stylesheet" />
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,19 +11,63 @@
     {% block head_block %}
     <title>Inicio Departamentos</title>
     {% endblock head_block %}
+
+    <script src="https://kit.fontawesome.com/09861335cf.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
+    
+    <header class="header">
+        <nav class="header__nav">
+            <ul class="header__nav__enlaces" id="header__nav__enlaces">
+                <li class="header__nav__enlaces__li">
+                    <a class="header__nav__enlaces__a" href={% url 'url-inicio' %}>HOME</a>
+                </li>
+                <li class="header__nav__enlaces__li">
+                    <a class="header__nav__enlaces__a"  href={% url 'url-departamentos' %}>Listado Departamentos</a>
+                </li>
+                <li class="header__nav__enlaces__li">
+                    <a class="header__nav__enlaces__a"
+                    href={% url 'url-crear-departamentos' %}>Crear Departamentos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-    <nav>
-        <a href={% url 'url-inicio' %}>HOME</a>
-        <a href={% url 'url-departamentos' %}>Listado Departamentos</a>
-        <a href={% url 'url-crear-departamentos' %}>Crear Departamentos</a>
-    </nav>
 
-    {% block body_block %}
-    <h1>Pagina inicio Departamentooos!</h1>
-    {% endblock body_block %}
+    <section>
+        {% block body_block %}
+        <h1>Pagina inicio - Departamentos</h1>
+        {% endblock body_block %}
+    </section>
+
+    <footer class="footer">
+        <p class="footer__p">© 2021 | Nicolás Cáceres Sala, todos los derechos reservados.</p>
+
+        <ul class="footer__socialLinks">
+            <li>
+                <a href="https://twitter.com/home" target="_blank">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <i class="fa fa-youtube"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
     
     
 </body>

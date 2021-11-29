@@ -4,7 +4,6 @@
   --font2: "Open Sans", sans-serif;
   --font3: "Montserrat Alternates", sans-serif;
   --font4: "Rubik", sans-serif;
-  /* --font6: 'Oswald', sans-serif; */
   --font5: "Roboto Mono", monospace;
   --font6: "Krub", sans-serif;
   --fontSizePrimary: 4.7rem;
@@ -27,43 +26,43 @@
 
 /*GENERAL----------------------------------------------------------------------------------------------------------------------------*/
 /*Configuro para utilizar REM en lugar de PX, 1 rem = 10 px------*/
-/*Tambien para manejar mejor el Box Model*/
 html {
   font-size: 62.5%;
-  box-sizing: border-box; /*para manejar mejor el box model*/
-}
+  box-sizing: border-box;
+  /*para manejar mejor el box model*/ }
 
 /*para manejar mejor el box model*/
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 body {
-  font-size: 16px; /*1 rem = 10px*/
-  background-color: var(--blanco);
-}
+  font-size: 16px;
+  /*1 rem = 10px*/
+  background-color: #f8f3e3;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto; }
 
 /*"Reseteamos" CSS*/
 * {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font6);
-}
+  font-family: "Krub", sans-serif;
+  font-size: 3.4rem;
+  font-weight: 700; }
 
 h1 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  font-size: 3.5rem;
   text-align: center;
-  color: var(--negro);
-}
+  color: #000000; }
+
 /*FIN GENERAL----------------------------------------------------------------------------------------------------------------------------*/
 
 /*FORMULARIO*/
@@ -71,6 +70,7 @@ h1 {
 .formulario {
   background-color: #242121;
   width: min(100rem, 100%);
+  height: 23rem;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 1rem;
@@ -145,8 +145,8 @@ h1 {
 @media (min-width: 769px) {
   .formulario .formulario__fieldset .formulario__contenedorCampos {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto 20rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     column-gap: 1rem;
   }
 }
@@ -203,190 +203,6 @@ h1 {
     box-shadow: 0 0 0.8rem 1.6rem #20e2d700;
   }
 }
-
-/*Fin Efectos de botones --------------------------*/
-/*Fin Boton-----------------------------------------------*/
-
-
-/*HEADER---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-header {
-  width: 100%;
-  height: 6.5rem;
-  background-color: var(--negro);
-  /* position:absolute; */
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  opacity: 0.9;
-}
-
-.navegacionPrincipal {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  /* z-index: 350; */
-}
-
-.enlaces {
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-  transition: all 0.5s ease-out;
-  background: var(--negro);
-}
-
-.enlaces a {
-  text-decoration: none;
-  color: var(--blanco);
-  font-family: var(--font6);
-  font-weight: 600;
-  font-size: 2.4rem;
-}
-
-.enlaces a:hover {
-  cursor: pointer;
-  color: var(--rojo);
-}
-
-.icono {
-  z-index: 110;
-}
-
-/*HEADER para pantalla grande--------*/
-@media (min-width: 769px) {
-  header {
-    height: 8rem;
-  }
-
-  .enlaces {
-    position: initial;
-    height: 100%;
-    width: 100%;
-    flex-direction: row;
-    background-color: transparent;
-    transition: all 0.1s ease-out;
-  }
-
-  .enlaces a {
-    --clippy1: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-    --clippy2: polygon(0 0, 0 0, 0 100%, 0% 100%);
-  }
-
-  .enlaces a:hover {
-    color: var(--blanco);
-  }
-
-  /*animacion linea hacia la izquierda*/
-  .enlaces a::before {
-    content: "";
-    display: block;
-    background: var(--rojo);
-    width: 100%;
-    margin-bottom: 0.4rem;
-    height: 0.3rem;
-    clip-path: var(--clippy1);
-    transition: clip-path 0.4s;
-  }
-
-  /*animacion linea hacia la derecha*/
-  .enlaces a::after {
-    content: "";
-    display: block;
-    background: var(--rojo);
-    width: 100%;
-    margin-top: 0.4rem;
-    height: 0.3rem;
-    clip-path: var(--clippy2);
-    transition: clip-path 0.4s;
-  }
-
-  /*muestra las lineas horizontales en los enlaces*/
-  .enlaces a:hover:before {
-    --clippy1: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    color: var(--rojo);
-  }
-
-  .enlaces a:hover:after {
-    --clippy2: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    color: var(--rojo);
-  }
-
-  #icono {
-    display: none;
-    color: var(--rojo);
-  }
-}
-/*----------------------------------------*/
-/*FIN HEADER---------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-/*FOOTER-----------------------------------------------------------------------------------------------------------------------------------------------------*/
-.footer {
-  margin-top: 8rem;
-  padding: 1rem;
-  color: var(--blanco);
-  font-size: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: var(--negro);
-  box-shadow: var(--box-shadow);
-}
-
-.footer p {
-  text-align: center;
-  font-family: var(--font6);
-  font-size: 2rem;
-  font-weight: 500;
-  color: var(--blanco);
-  margin-bottom: 0.7rem;
-}
-
-@media screen and (min-width: 760px) {
-  .footer {
-    height: 17.5rem;
-  }
-}
-
-.socialLinks {
-  display: flex;
-  justify-content: space-between;
-  width: 15rem;
-  list-style: none;
-  cursor: pointer;
-}
-
-.fa-twitter:hover {
-  color: #7adcf9;
-  color: #4bc9f5;
-}
-
-.fa-facebook:hover {
-  color: #548abf;
-  color: #295b9e;
-}
-
-.fa-youtube:hover {
-  color: #df192a;
-  color: #c41222;
-}
-
-.fa-instagram:hover {
-  color: #7fc121;
-  color: #298733;
-  color: #ff9259;
-}
-/*FIN FOOTER-----------------------------------------------------*/
-
-/*----------------------------------------*/
-/*FIN FOOTER-----------------------------------------------------------------------------------------------------------------------------------------------*/
 /*boton de contacto*/
 .boton:hover {
   animation: sombra_pulso 1000ms 1;
@@ -404,18 +220,114 @@ header {
 }
 /*Fin Efectos de botones -----------------------------------*/
 
-/*para desplegar y ocultar los enlaces del menu hamburguesa*/
-@media screen and (max-width: 769px) {
-  /*para ocultar el menu*/
-  .ocultarEnlaces {
-    -webkit-clip-path: circle(0% at 100% 0%);
-    clip-path: circle(0% at 100% 0%);
-  }
+/*Fin Efectos de botones --------------------------*/
+/*Fin Boton-----------------------------------------------*/
 
-  .circuloEnlace {
-    -webkit-clip-path: circle(150% at 100% 0%);
-    clip-path: circle(150% at 100% 0%);
+
+/*HEADER---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.header {
+  width: 100%;
+  height: 6.5rem;
+  background-color: #242121;
+  position: sticky;
+  top: 0;
+  z-index: 100; }
+  .header .header__nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: normal;
   }
-}
-/*--------------------------------------------------------------*/
+    .header .header__nav .header__nav__enlaces {
+      position: initial;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      list-style: none;
+      background-color: #242121; }
+      .header .header__nav .header__nav__enlaces .header__nav__enlaces__li {
+        margin-left:5rem; }
+        .header .header__nav .header__nav__enlaces .header__nav__enlaces__li .header__nav__enlaces__a {
+          text-decoration: none;
+          color: #f8f3e3;
+          font-family: "Krub", sans-serif;
+          font-size: 2rem;
+          font-weight: 600; }
+        .header .header__nav .header__nav__enlaces .header__nav__enlaces__li .header__nav__enlaces__a:hover {
+          cursor: pointer;
+          color: #d83863; }
+        .header .header__nav .header__nav__enlaces .header__nav__enlaces__li .header__nav__enlaces__a--active {
+          color: #d83863; }
+
+    @media (min-width: 769px) {
+      .header .header__nav .header__nav__iconoHamb {
+        display: none; }
+      .header .header__nav .header__nav__enlaces {
+        position: initial;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        transition: all 0.1s ease-out; }
+        .header .header__nav .header__nav__enlaces .header__nav__enlaces__li {
+          margin-top: initial;}
+
+          .header .header__nav .header__nav__enlaces .header__nav__enlaces__li .header__nav__enlaces__a:hover {
+            cursor: pointer;
+            color: #d83863; }
+      
+
+
+/*FIN HEADER---------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*FOOTER-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+.footer {
+  margin-top: 8rem;
+  padding: 1rem;
+  color: #f8f3e3;
+  font-family: "Krub", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #242121; }
+  .footer .footer__p {
+    text-align: center;
+    font-family: "Krub", sans-serif, Charter, Georgia, serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f8f3e3;
+    margin-bottom: 0.7rem; }
+  .footer .footer__socialLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 15rem;
+    list-style: none;
+    cursor: pointer; }
+    .footer .footer__socialLinks a {
+      color: #f8f3e3; }
+    .footer .footer__socialLinks .fa-twitter:hover {
+      color: #4bc9f5; }
+    .footer .footer__socialLinks .fa-facebook:hover {
+      color: #295b9e; }
+    .footer .footer__socialLinks .fa-youtube:hover {
+      color: #c41222; }
+    .footer .footer__socialLinks .fa-instagram:hover {
+      color: #ff9259; }
+/*FIN FOOTER-----------------------------------------------------*/
+
+/*----------------------------------------*/
+/*FIN FOOTER-----------------------------------------------------------------------------------------------------------------------------------------------*/
 

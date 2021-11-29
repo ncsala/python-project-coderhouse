@@ -65,7 +65,7 @@ def create_chiefs(request):
             datos = formulario.cleaned_data
             jefe = Chief(first_name=datos['first_name'], last_name=datos['last_name'])
             jefe.save()
-            return redirect('url-crear-jefes')
+            return redirect('url-jefes')
     
     formulario = ChiefsForm()
     
