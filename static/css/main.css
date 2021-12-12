@@ -6,7 +6,6 @@
   --font4: "Rubik", sans-serif;
   --font5: "Roboto Mono", monospace;
   --font6: "Krub", sans-serif;
-  --fontSizePrimary: 4.7rem;
   --font7: "Roboto", sans-serif;
   --font8: "Nunito", sans-serif;
 
@@ -25,9 +24,8 @@
 }
 
 /*GENERAL----------------------------------------------------------------------------------------------------------------------------*/
-/*Configuro para utilizar REM en lugar de PX, 1 rem = 10 px------*/
+/*Configuro para utilizar px en lugar de PX, 1 px = 10 px------*/
 html {
-  font-size: 62.5%;
   box-sizing: border-box;
   /*para manejar mejor el box model*/ }
 
@@ -38,8 +36,6 @@ html {
   box-sizing: inherit; }
 
 body {
-  font-size: 16px;
-  /*1 rem = 10px*/
   background-color: #f8f3e3;
   display: grid;
   min-height: 100vh;
@@ -54,14 +50,18 @@ h1,
 h2,
 h3 {
   font-family: "Krub", sans-serif;
-  font-size: 3.4rem;
+  font-size: 34px;
   font-weight: 700; }
 
 h1 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   color: #000000; }
+
+.tablas {
+  margin-top: 20px;
+}
 
 /*FIN GENERAL----------------------------------------------------------------------------------------------------------------------------*/
 
@@ -69,11 +69,11 @@ h1 {
 /*formulario---------------------------------------------------------------*/
 .formulario {
   background-color: #242121;
-  width: min(100rem, 100%);
-  height: 23rem;
+  width: min(1000px, 100%);
+  height: 250px;
   margin: 0 auto;
-  padding: 2rem;
-  border-radius: 1rem;
+  padding: 20px;
+  border-radius: 10px;
 }
 .formulario .formulario__fieldset {
   border: none;
@@ -83,24 +83,24 @@ h1 {
 .formulario .formulario__fieldset .formulario__legend {
   text-align: center;
   font-family: "PT Sans", sans-serif;
-  font-size: 1.8rem;
+  font-size: 18px;
   font-weight: 700;
   color: #f8c25c;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 .formulario .formulario__fieldset .formulario__contenedorCampos__campo {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 .formulario
   .formulario__fieldset
   .formulario__contenedorCampos__campo
   .formulario__campo__label {
   font-family: "PT Sans", sans-serif;
-  font-size: 1.8rem;
+  font-size: 18px;
   font-weight: 700;
   color: #f8f3e3;
-  margin-bottom: 0.5rem;
+  margin-bottom: 5px;
   display: block;
 }
 .formulario
@@ -109,12 +109,12 @@ h1 {
   .formulario__campo__inputTexto {
   border-color: #242121;
   font-family: "PT Sans", sans-serif;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 400;
   width: 100%;
   border: none;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
+  padding: 15px;
+  border-radius: 5px;
 }
 .formulario
   .formulario__fieldset
@@ -122,7 +122,7 @@ h1 {
   .formulario__campo__inputTexto:focus {
   outline: none;
   border: 2px solid #f8c25c;
-  box-shadow: 0 0 1rem #f8c25c;
+  box-shadow: 0 0 10px #f8c25c;
 }
 .formulario
   .formulario__fieldset
@@ -147,7 +147,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    column-gap: 1rem;
+    column-gap: 10px;
   }
 }
 
@@ -162,14 +162,14 @@ h1 {
 }
 .contenedorBotones .contenedorBotones__boton {
   position: relative;
-  padding: 1rem 3rem;
-  margin-top: 2rem;
+  padding: 10px 30px;
+  margin-top: 20px;
   background-color: #d83863;
   font-family: "PT Sans", sans-serif;
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   color: #f8f3e3;
   background-color: transparent;
   border: 2px solid #20e2d7;
@@ -200,7 +200,7 @@ h1 {
     box-shadow: 0 0 0 0 #20e2d780;
   }
   100% {
-    box-shadow: 0 0 0.8rem 1.6rem #20e2d700;
+    box-shadow: 0 0 0.8px 1.6px #20e2d700;
   }
 }
 /*boton de contacto*/
@@ -225,9 +225,9 @@ h1 {
 
 
 /*HEADER---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-.header {
+/* .header {
   width: 100%;
-  height: 6.5rem;
+  height: 6.5px;
   background-color: #242121;
   position: sticky;
   top: 0;
@@ -251,12 +251,12 @@ h1 {
       list-style: none;
       background-color: #242121; }
       .header .header__nav .header__nav__enlaces .header__nav__enlaces__li {
-        margin-left:5rem; }
+        margin-left:5px; }
         .header .header__nav .header__nav__enlaces .header__nav__enlaces__li .header__nav__enlaces__a {
           text-decoration: none;
           color: #f8f3e3;
           font-family: "Krub", sans-serif;
-          font-size: 2rem;
+          font-size: 2px;
           font-weight: 600; }
         .header .header__nav .header__nav__enlaces .header__nav__enlaces__li .header__nav__enlaces__a:hover {
           cursor: pointer;
@@ -283,17 +283,15 @@ h1 {
           .header .header__nav .header__nav__enlaces .header__nav__enlaces__li .header__nav__enlaces__a:hover {
             cursor: pointer;
             color: #d83863; }
-      
-
-
+       */
 /*FIN HEADER---------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*FOOTER-----------------------------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
-  margin-top: 8rem;
-  padding: 1rem;
+  margin-top: 80px;
+  padding: 10px;
   color: #f8f3e3;
   font-family: "Krub", sans-serif;
-  font-size: 3rem;
+  font-size: 30px;
   font-weight: 700;
   display: flex;
   flex-direction: column;
@@ -304,16 +302,16 @@ h1 {
   .footer .footer__p {
     text-align: center;
     font-family: "Krub", sans-serif, Charter, Georgia, serif;
-    font-size: 2rem;
+    font-size: 20px;
     font-weight: 500;
     color: #f8f3e3;
-    margin-bottom: 0.7rem; }
+    margin-bottom: 7px; }
   .footer .footer__socialLinks {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 15rem;
+    width: 150px;
     list-style: none;
     cursor: pointer; }
     .footer .footer__socialLinks a {

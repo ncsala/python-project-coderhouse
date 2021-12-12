@@ -6,6 +6,7 @@
 
     
 {% block body_block %}
+
     <h1>Crear Jefes</h1>
 
     <form action={% url 'url-crear-jefes' %} method="POST">
@@ -13,5 +14,6 @@
         {{formulario.as_table}}
         <input type="submit" value="Crear"/>
     </form>
+
 {% endblock body_block %}
 

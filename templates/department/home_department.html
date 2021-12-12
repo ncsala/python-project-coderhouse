@@ -1,0 +1,26 @@
+
+{% extends 'inicio/index.html' %}
+
+{% block header %}
+    <header class="header">
+    <nav class="header__nav">
+        <ul class="header__nav__enlaces" id="header__nav__enlaces">
+            <li class="header__nav__enlaces__li">
+                <a class="header__nav__enlaces__a" href={% url 'url-inicio' %}>HOME</a>
+            </li>
+            <li class="header__nav__enlaces__li">
+                <a class="header__nav__enlaces__a"  href={% url 'url-departamentos' %}>Listado Departamentos</a>
+            </li>
+            <li class="header__nav__enlaces__li">
+                <a class="header__nav__enlaces__a"
+                href={% url 'url-crear-departamentos' %}>Crear Departamentos</a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+{% endblock header %}
+
+
+{% block body_block %}
+    <h1>Pagina inicio - Departamentos</h1>
+{% endblock body_block %}
