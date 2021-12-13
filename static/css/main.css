@@ -75,6 +75,15 @@ h1 {
   padding: 20px;
   border-radius: 10px;
 }
+
+.formulario--empleados {
+  height: 530px;
+}
+
+.formulario--eliminar {
+  height: 250px;
+}
+
 .formulario .formulario__fieldset {
   border: none;
   /*el textarea*/

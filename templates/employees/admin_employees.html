@@ -10,14 +10,6 @@
 <div class="grid-container">
     <div class="grid-x">
         <h1 class="cell">Listado Empleados</h1>
-        <form method="GET" class="cell grid-x grid-margin-x"> {% csrf_token %}
-            <div class="cell large-7">
-                <input type="text" id="kword" name="kword" placeholder="Ingrese el apellido del empleado a buscar">
-            </div>
-            <div class="cell large-2">
-                <button class="submit primary button">Buscar</button>
-            </div>
-        </form>
         <table class="cell">
             <thead>
                 <tr>
@@ -26,7 +18,7 @@
                     <th width="80">Apellido</th>
                     <th width="100">Puesto</th>
                     <th width="150">Departamento</th>
-                    <th width="200">Más Información</th>
+                    <th width="50">Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,11 +30,9 @@
                     <td>{{employee.position}}</td>
                     <td>{{employee.department}}</td>
                     <td>
-                        <a class="button success" href="{% url 'url-detail' employee.id %}">Más detalles</a>
                         <a class="button warning" href="{% url 'url-update' employee.id %}">Editar</a>
                         <a class="button alert" href="{% url 'url-delete' employee.id %}">Eliminar</a>
                     </td>
-
                 </tr>
                 {% endfor %}
             </tbody>

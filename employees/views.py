@@ -1,30 +1,84 @@
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView, TemplateView, UpdateView, DeleteView, DetailView
 from employees.forms import EmpleadosFormulario
-from .models import Employee, Skills
+from .models import Employee
+from django.urls import reverse_lazy
 
 
 # Create your views here.
 def information_employees(request):
     return render(request,'employees/home_employees.html', {})
-
-def list_employees(request):
-    empleados = None
-    error = None
     
-    if request.method == 'GET':
-        nombre = request.GET.get('nombre_buscado', '')
-        
-        if nombre == '':
-            empleados = Employee.objects.all()
-        else:
-            try:
-                empleados = Employee.objects.filter(first_name=nombre)
-            except:
-                error = 'Debe ingresar un nombre valido.'
+class ListEmployees(ListView):
+    template_name = 'employees/list_employees.html'
+    context_object_name = 'employees'
+    paginate_by = 20
+    
+    def get_queryset(self):
+        palabra_clave = self.request.GET.get('kword', '')
+        lista = Employee.objects.filter(
+            last_name__icontains = palabra_clave
+        )
+        return lista
 
-    return render(request,'employees/list_employees.html', {'empleados': empleados, 'error': error})
+class ListEmployeesAdmin(ListView):
+    template_name = 'employees/admin_employees.html'
+    context_object_name = 'employees'
+    paginate_by = 20
+    model = Employee
+        
+class CreateEmployee(CreateView):
+    template_name = 'employees/create_employees.html'
+    model = Employee
+    fields = [
+            'first_name', 
+            'last_name', 
+            'position',
+            'department' 
+            ]
+    # Para que redireccione cuando se ha completado correctamente
+    success_url = reverse_lazy('url-empleados')
+
+class EmployeeUpdateView(UpdateView):
+    template_name = 'employees/update_employees.html'
+    model = Employee
+    
+    fields = [
+            'first_name', 
+            'last_name', 
+            'position',
+            'department', 
+            ]
+    
+    success_url = reverse_lazy('url-empleados')
+
+class EmployeeDeleteView(DeleteView):
+    template_name = 'employees/delete_employees.html'
+    model = Employee
+    success_url = reverse_lazy('url-empleados')
+
+class EmployeeDetailView(DetailView):
+    model = Employee
+    template_name = 'employees/detail_employee.html'
+
+
+# def list_employees(request):
+#     empleados = None
+#     error = None
+    
+#     if request.method == 'GET':
+#         nombre = request.GET.get('nombre_buscado', '')
+        
+#         if nombre == '':
+#             empleados = Employee.objects.all()
+#         else:
+#             try:
+#                 empleados = Employee.objects.filter(first_name=nombre)
+#             except:
+#                 error = 'Debe ingresar un nombre valido.'
+
+#     return render(request,'employees/list_employees.html', {'empleados': empleados, 'error': error})
 
 # def create_employees(request, id):
 #     id_empleado = 0
@@ -49,13 +103,6 @@ def list_employees(request):
 #         formulario = EmpleadosFormulario()
     
 #     return render(request,'employees/create_employees.html', {'empleado': empleado, 'formulario': formulario, 'idempleado': id_empleado})
-
-class CreateEmployees(CreateView):
-    model = Employee
-    succes_url = 'employees/list_employees.html'
-    template_name = 'employees/create_employees.html'
-    ...
-    # return render(request,'employees/create_employees.html', {})
 
 # def list_chiefs(request):
     

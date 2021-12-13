@@ -1,12 +1,15 @@
 {% extends 'employees/home_employees.html' %}
 
 {% block head_block %}
-<title>Listado de Empleados</title>
+<title>Edición de Empleados</title>
 {% endblock head_block %}
 
 {% block body_block %}
-    <h1 class="cell">Registrar Empleados</h1>
 
+<div class="grid-container">
+    <h1 class="cell">Actualizar campos de Empleados</h1>
+
+    
     <div class="cell">
         <form class="formulario formulario--empleados" method='POST'> {% csrf_token %}
             <fieldset class="formulario__fieldset">
@@ -24,10 +27,16 @@
                     <label class="formulario__campo__label" for="text">Departamento {{form.department}}</label>
                 </div>
                 <div class="contenedorBotones">
-                    <button class="contenedorBotones__boton contenedorBotones__boton--widht100" type="submit">Aceptar</button>
+                    <button class="contenedorBotones__boton contenedorBotones__boton--widht100" type="submit">Actualizar</button>
                 </div>
             </fieldset>
         </form>
     </div>
+</div>
+
+
+{% comment %} <input class="formulario__campo__inputTexto" type="text" name="nombre_buscado" placeholder="Nombre de empleado"
+    id="nombre_buscado"> {% endcomment %}
+
 {% endblock body_block %}
 
