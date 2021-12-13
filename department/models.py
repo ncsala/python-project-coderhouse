@@ -6,4 +6,4 @@ class Department(models.Model):
     short_name = models.CharField(max_length=20, blank=True)
     
     def __str__(self):
-        return f'Departamento {self.id} {self.name} {self.short_name}'
+        return f'Departamento {self.id} - {self.name} - {self.short_name}'

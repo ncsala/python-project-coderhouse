@@ -7,12 +7,15 @@
 {% block body_block %}
 
     <h1>Crear Empleados</h1>
-
+    {% if empleado %}
+        <p>
+            {{empleado.first_name}} {{empleado.last_name}}
+        </p>
+    {% endif %}
     <form action={% url 'url-crear-empleados' %} method="POST">
         {% csrf_token %}
         {{formulario.as_table}}
         <input type="submit" value="Crear"/>
     </form>
-    
 {% endblock body_block %}
 

@@ -6,10 +6,22 @@
 <div class="top-bar" id="responsive-menu">
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Empleados</li>
-            <li><a class="header__nav__enlaces__a" href={% url 'url-empleados' %}>Listar</a></li>
-            <li><a class="header__nav__enlaces__a" href={% url 'url-informacion-empleados' %}>Empleados</a></li>
-            <li><a class="header__nav__enlaces__a" href={% url 'url-information_department' %}>Departametos</a></li>
+            <li class="menu-text">Sistema de Recursos Humanos</li>
+            <li>
+                <a href="#">Empleados</a>
+                <ul class="menu vertical">
+                    <li><a href={% url 'url-empleados'  %}>Listar Empleados</a></li>
+                    <li><a href={% url 'url-crear-empleados'%}>Alta de Empleados</a></li>
+                    {% comment %} <li><a href={% url 'url-jefes'  %}>Listar Jefes</a></li> {% endcomment %}
+                    {% comment %} <li><a href={% url 'url-crear-jefes'  %}>Alta de Jefes</a></li> {% endcomment %}
+                </ul>
+            </li>
+            <li>
+                <a href="#">Departamentos</a>
+                <ul class="menu vertical">
+                    <li><a href="{% url 'url-departamentos' %}">Listar Departamentos</a></li>
+                    <li><a href="{% url 'url-crear-departamentos' %}">Alta Departamentos</a></li>
+                </ul>
         </ul>
     </div>
     <div class="top-bar-right">
