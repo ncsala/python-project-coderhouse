@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'department',
     'employees',
     'inicio',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Agrego para cambiar modelo de usuarios a utilizar.
+AUTH_USER_MODEL = 'users.User'
 
 
 # Internationalization

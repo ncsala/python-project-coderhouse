@@ -11,5 +11,3 @@ urlpatterns = [
     path('eliminar-empleado/<pk>/', EmployeeDeleteView.as_view(), name='url-delete'),
     path('detalle-empleado/<pk>/', EmployeeDetailView.as_view(), name='url-detail'),
 ]
-    # path('lista-jefes/', list_chiefs, name='url-jefes'),
-    # path('crear-jefes/', create_chiefs, name='url-crear-jefes'),

@@ -1,0 +1,19 @@
+{% extends 'inicio/index.html' %}
+
+{% block head_block %}
+<title>Login de Usuarios</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <div class="grid-container">
+        <h1 class="cell">Login de Usuario</h1>
+        
+        <div class="cell">
+            <form method="post">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="button success">Acceder</button>
+            </form>
+        </div>
+    </div>
+{% endblock body_block %}
+

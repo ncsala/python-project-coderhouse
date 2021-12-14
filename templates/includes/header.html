@@ -24,8 +24,10 @@
     </div>
     <div class="top-bar-right">
         <ul class="menu">
+            <li><a href="{% url 'url-profile-usuario' %}">Perfil de Usuario</a></li>
             <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
+            <a class="button primary button-login" href="{% url 'url-login-usuario'%}">Login</a>
+            <a class="button primary" href="{% url 'url-registro-usuario'%}">Registro</a>
         </ul>
     </div>
 </div>

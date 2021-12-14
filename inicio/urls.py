@@ -9,4 +9,5 @@ urlpatterns = [
     path('', HomeView, name='url-inicio'),
     path('empleados/', include('employees.urls')),
     path('departamentos/', include('department.urls')),
+    path('registro-usuarios/', include('users.urls')),
 ]

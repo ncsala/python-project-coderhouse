@@ -13,7 +13,7 @@ def information_employees(request):
 class ListEmployees(ListView):
     template_name = 'employees/list_employees.html'
     context_object_name = 'employees'
-    paginate_by = 20
+    paginate_by = 10
     
     def get_queryset(self):
         palabra_clave = self.request.GET.get('kword', '')
@@ -25,7 +25,7 @@ class ListEmployees(ListView):
 class ListEmployeesAdmin(ListView):
     template_name = 'employees/admin_employees.html'
     context_object_name = 'employees'
-    paginate_by = 20
+    paginate_by = 10
     model = Employee
         
 class CreateEmployee(CreateView):

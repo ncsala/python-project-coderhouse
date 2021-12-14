@@ -1,0 +1,49 @@
+
+{% extends 'inicio/index.html' %}
+
+{% block head_block %}
+<title>Registro de Usuarios</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <div class="grid-container">
+        <h1 class="cell">Registrar Nuevo Usuario</h1>
+        
+        <div class="cell">
+            <form method="post">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="button success">Registrar</button>
+            </form>
+        </div>
+    </div>
+{% endblock body_block %}
+    
+    {% comment %} <form class="formulario formulario--empleados" method='POST'> {% csrf_token %}
+        <fieldset class="formulario__fieldset">
+            <legend class="formulario__legend">MODIFIQUE LOS CAMPOS QUE DESEA ACTUALIZAR</legend>
+            <div class="formulario__contenedorCampos__campo">
+                <label class="formulario__campo__label" for="text">Nombre de Usuario {{form.username}}</label>
+            </div>
+            <div class="formulario__contenedorCampos__campo">
+                <label class="formulario__campo__label" for="text">Apellido {{form.email_name}}</label>
+            </div>
+            <div class="formulario__contenedorCampos__campo">
+                <label class="formulario__campo__label" for="text">Puesto {{form.first_name}}</label>
+            </div>
+            <div class="formulario__contenedorCampos__campo">
+                <label class="formulario__campo__label" for="text">Departamento {{form.last_name}}</label>
+            </div>
+            <div class="formulario__contenedorCampos__campo">
+                <label class="formulario__campo__label" for="text">Departamento {{form.gender}}</label>
+            </div>
+            <div class="formulario__contenedorCampos__campo">
+                <label class="formulario__campo__label" for="text">Contraseña {{form.password2}}</label>
+            </div>
+            <div class="formulario__contenedorCampos__campo">
+                <label class="formulario__campo__label" for="text">Repetir Contraseña {{form.password1}}</label>
+            </div>
+            <div class="contenedorBotones">
+                <button class="contenedorBotones__boton contenedorBotones__boton--widht100" type="submit">Aceptar</button>
+            </div>
+        </fieldset>
+    </form> {% endcomment %}

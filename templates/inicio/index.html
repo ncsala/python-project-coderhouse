@@ -15,18 +15,6 @@
 <body>
     <header class="header">
         {% include 'includes/header.html' %}
-        {% comment %} {% block header %}
-        <nav class="header__nav">
-            <ul class="header__nav__enlaces" id="header__nav__enlaces">
-                <li class="header__nav__enlaces__li">
-                    <a class="header__nav__enlaces__a" href={% url 'url-informacion-empleados' %}>Empleados</a>
-                </li>
-                <li class="header__nav__enlaces__li">
-                    <a class="header__nav__enlaces__a" href={% url 'url-information_department' %}>Departametos</a>
-                </li>
-            </ul>
-        </nav>
-        {% endblock header %} {% endcomment %}
     </header>
 
     <section>
