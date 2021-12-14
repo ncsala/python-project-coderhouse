@@ -1,0 +1,21 @@
+{% extends 'inicio/index.html' %}
+
+{% block head_block %}
+<title>Actualizar Contraseña Usuario</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <div class="grid-container">
+        <h1 class="cell">Actualizar Contraseña</h1>
+        
+        <div class="cell">
+            <h3>Cambiar Contraseña: {{ user.get_full_name }}</h3>
+            <form method="POST">{% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="button success">Actualizar</button>
+            </form>
+        </div>
+
+    </div>
+{% endblock body_block %}
+

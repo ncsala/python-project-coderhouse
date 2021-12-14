@@ -59,6 +59,10 @@ h1 {
   text-align: center;
   color: #000000; }
 
+  h3 {
+    font-size: 18px;
+    }
+
 .tablas {
   margin-top: 20px;
 }
