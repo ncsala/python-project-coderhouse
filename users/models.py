@@ -20,11 +20,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
 
     username = models.CharField(max_length=15, unique=True)
+    # ACA TENDRIA Q AGREGAR QUE UNIQUE IGUAL A TRUE PA Q NO SE REPITA EL CORREO.
     email = models.EmailField()
     first_name = models.CharField(max_length=40, blank=True)
     last_name = models.CharField(max_length=40, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
-    codregistro = models.CharField(max_length=8, blank=True)
+    registration_code = models.CharField(max_length=4, blank=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
 

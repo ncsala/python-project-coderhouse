@@ -17,13 +17,13 @@ class UserManager(BaseUserManager, models.Manager):
         return user
     
     def create_user(self, username, email, password=None, **extra_fields):
-        return self._create_user(username, email, password, False, False, True, **extra_fields)
+        return self._create_user(username, email, password, False, False, False, **extra_fields)
 
     def create_superuser(self, username, email, password=None, **extra_fields):
         return self._create_user(username, email, password, True, True, True, **extra_fields)
     
     def cod_validation(self, id_user, cod_registro):
-        if self.filter(id=id_user, codregistro=cod_registro).exists():
+        if self.filter(id=id_user, registration_code=cod_registro).exists():
             return True
         else:
             return False

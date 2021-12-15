@@ -20,3 +20,10 @@ DATABASES = {
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [r'C:\Users\nicoe\Desktop\LOCAL-python\pythonproject\python_project\static']
+
+# Configuraciones de email
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'python.project.coderhouse@gmail.com'
+EMAIL_HOST_PASSWORD = 'yosoycaceres35'
+EMAIL_PORT = 587

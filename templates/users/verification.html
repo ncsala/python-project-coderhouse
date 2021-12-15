@@ -2,17 +2,18 @@
 {% extends 'inicio/index.html' %}
 
 {% block head_block %}
-<title>Registro de Usuarios</title>
+<title>Verificación de email</title>
 {% endblock head_block %}
 
 {% block body_block %}
     <div class="grid-container">
-        <h1 class="cell">Registrar Nuevo Usuario</h1>
+        <h1 class="cell">Verificación de Email</h1>
         
         <div class="cell">
-            <form method="post">{% csrf_token %}
+            <h3>Ingrese el código de verificación:</h3>
+            <form method="POST">{% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="button success">Registrar</button>
+                <button type="submit" class="button success">Confirmar</button>
             </form>
         </div>
     </div>
