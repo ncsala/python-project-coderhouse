@@ -6,7 +6,10 @@
 <div class="top-bar" id="responsive-menu">
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Sistema de Recursos Humanos</li>
+            {% comment %} <li class="menu-text"><a href={% url 'url-inicio'  %}>Sistema de Recursos Humanos</a></li> {% endcomment %}
+            <li>
+                <a class="home" href={% url 'url-inicio'  %}>Sistema de Recursos Humanos</a>
+            </li>
             <li>
                 <a href={% url 'url-empleados'  %}>Empleados</a>
                 <ul class="menu vertical">
@@ -24,9 +27,12 @@
     </div>
     <div class="top-bar-right">
         <ul class="menu">
-            <li><a href="{% url 'url-profile-usuario' %}">Perfil de Usuario</a></li>
             <li><input type="search" placeholder="Search"></li>
-            <a class="button primary button-login" href="{% url 'url-login-usuario'%}">Login</a>
+            {% if not user.is_anonymous %}
+                <li><a class="button warning button-login" href="{% url 'url-profile-usuario' %}">Perfil</a></li>
+            {% else %}
+                <a class="button success button-login" href="{% url 'url-login-usuario'%}">Acceder</a>
+            {% endif %}
             <a class="button primary" href="{% url 'url-registro-usuario'%}">Registro</a>
         </ul>
     </div>

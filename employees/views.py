@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic import CreateView, ListView, TemplateView, UpdateView, DeleteView, DetailView
@@ -40,9 +41,10 @@ class CreateEmployee(CreateView):
     # Para que redireccione cuando se ha completado correctamente
     success_url = reverse_lazy('url-empleados')
 
-class EmployeeUpdateView(UpdateView):
+class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'employees/update_employees.html'
     model = Employee
+    login_url = reverse_lazy('url-login-usuario')
     
     fields = [
             'first_name', 

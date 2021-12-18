@@ -69,11 +69,17 @@ h1 {
 
 /*FIN GENERAL----------------------------------------------------------------------------------------------------------------------------*/
 
-/*login*/
+/*boton login*/
 .button-login {
   margin-right: 17px;
 }
 /*fin login*/
+
+.home {
+  color: white !important;
+  font-size: 18px;
+}
+
 
 /*FORMULARIO*/
 /*formulario---------------------------------------------------------------*/

@@ -3,14 +3,13 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 from .managers import UserManager
 
+# Create your models here.
 GENDER_CHOICES = (
     ('F', 'Femenino'),
     ('M', 'Masculino'),
     ('O', 'Otro'),
 )
 
-
-# Create your models here.
 class User(AbstractBaseUser, PermissionsMixin):
 
     GENDER_CHOICES = (
@@ -28,6 +27,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     registration_code = models.CharField(max_length=4, blank=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+    avatar_users = models.ImageField(upload_to='users', blank=True, null=True)
 
     USERNAME_FIELD = 'username'
 
