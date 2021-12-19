@@ -7,45 +7,78 @@
 {% block body_block %}
 
     
-        <h1>Listado Departamentos</h1>
-        
-        <form class="formulario" action={% url 'url-departamentos' %} method="GET">
-            <fieldset class="formulario__fieldset">
-        
-                <legend class="formulario__legend">Complete todos los campos</legend>
-        
-                <div class="formulario__contenedorCampos">
-        
-                    <div class="formulario__contenedorCampos__campo">
-                        <label class="formulario__campo__label" for="numero">Numero</label>
-                        <input class="formulario__campo__inputTexto" type="text" name="nombre_buscado" placeholder="Ingrese numero a buscar"
-                            id="nombre_buscado">
+        <div class="grid-container">
+            <h1>Listado Departamentos</h1>
+            
+            <form class="formulario" action={% url 'url-departamentos' %} method="GET">
+                <fieldset class="formulario__fieldset">
+            
+                    <legend class="formulario__legend">Complete todos los campos</legend>
+            
+                    <div class="formulario__contenedorCampos">
+            
+                        <div class="formulario__contenedorCampos__campo">
+                            <label class="formulario__campo__label" for="numero">Numero</label>
+                            <input class="formulario__campo__inputTexto" type="text" name="nombre_buscado" placeholder="Ingrese numero a buscar"
+                                id="nombre_buscado">
+                        </div>
+            
+            
                     </div>
+                    
+                    <div class="contenedorBotones">
+                        <button class="contenedorBotones__boton contenedorBotones__boton--widht100" type="submit">Buscar</button>
+                    </div>
+                </fieldset>
+            </form> 
+            
+            <ul>
+            
+                {% comment %} {% if departamentos %} 
+                    {% for departamento in departamentos %}
+                        <li>
+                            {{departamento}}
+                        </li>
+                    {% endfor %}
+                {% elif error%}
+                    <h3>{{error}}</h3>
+                {% else %}
+                    <h3>No se encontraron departamentos con ese nombre.</h3>
+                {% endif %} {% endcomment %}
+            
+            </ul> 
         
-        
-                </div>
-                
-                <div class="contenedorBotones">
-                    <button class="contenedorBotones__boton contenedorBotones__boton--widht100" type="submit">Buscar</button>
-                </div>
-            </fieldset>
-        </form> 
-        
-        <ul>
-        
-            {% if departamentos %} 
-                {% for departamento in departamentos %}
-                    <li>
-                        {{departamento}}
-                    </li>
-                {% endfor %}
-            {% elif error%}
-                <h3>{{error}}</h3>
-            {% else %}
-                <h3>No se encontraron departamentos con ese nombre.</h3>
-            {% endif %}
-        
-        </ul> 
+        {% if departamentos %} 
+            <table class="cell">
+                <thead>
+                    <tr>
+                        <th width="50">Id</th>
+                        <th width="80">Nombre</th>
+                        <th width="80">Nombre Corto</th>
+                        <th width="80">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for departamento in departamentos %}
+                    <tr>
+                        <td>{{departamento.id}}</td>
+                        <td>{{departamento.name}}</td>
+                        <td>{{departamento.short_name}}</td>
+                        <td>
+                            <a class="button warning" href="">Editar</a>
+                            <a class="button alert" href="">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% elif error%}
+        <h3>{{error}}</h3>
+                {% else %}
+                    <h3>No se encontraron departamentos con ese nombre.</h3>
+                {% endif %} 
+
+        </div>
         
 
 {% endblock body_block %}

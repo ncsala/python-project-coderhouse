@@ -5,12 +5,16 @@
 {% endblock head_block %}
 
 {% block body_block %}
-    <h1>Crear Departamentos</h1>
+    <h1 class="cell">Crear Departamentos</h1>
 
-        <form action={% url 'url-crear-departamentos' %} method="POST">
-            {% csrf_token %}
-            {{formulario.as_table}}
-            <input type="submit" value="Crear"/>
-        </form>
+    <div class="grid-container">
+        <div class="cell">
+            <form action={% url 'url-crear-departamentos' %} method="POST">
+                {% csrf_token %}
+                {{formulario.as_table}}
+                <input type="submit" class="button primary" value="Crear"/>
+            </form>
+        </div>
+    </div>
 {% endblock body_block %}
 
