@@ -2,67 +2,34 @@
 {% load static %}
 
 {% block head_block %}
-<title>Detalle de Empleados</title>
+    <title>Detalle de Empleados</title>
 {% endblock head_block %}
 
 {% block body_block %}
-<h1 class="cell">Detalle Empleados</h1>
+    <h1 class="cell">Detalle Empleado</h1>
 
-<div class="grid-container">
-    <div class="grid-x grid-margin-x align-center">
-        <div class="cell large-4 card" style="width: 300px; margin-top: 10px;">
-            <div class="card-divider">
-                {{ object.position }}
-            </div>
-            {% if object.avatar_employees %}
-                <img src="{{ object.avatar_employees.url }}">
-            {% else %}
-            <img src="{% static 'images/rh3.jpg' %}">
-            {% endif %}
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x align-center">
+            <div class="cell large-8 card" style="width: 300px; margin-top: 10px;">
+                <div class="card-divider">
+                    {{ object.position }}
+                </div>
+                {% if object.avatar_employees %}
+                    <img src="{{ object.avatar_employees.url }}">
+                {% else %}
+                <img src="{% static 'images/rh3.jpg' %}">
+                {% endif %}
 
-            <div class="card-section">
-                <h4>{{ object.get_full_name }}</h4>
-                <p>{{ object.last_name }}</p>
-                <p>{{ object.department.name }}</p>
+                <div class="card-section">
+                    <h4>{{ object.get_full_name }}</h4>
+                    <p>{{ object.email }}</p>
+                    <p>{{ object.phoneNumber }}</p>
+                    <p>{{ object.mobile_phone }}</p>
+                    <p>{{ object.position }}</p>
+                    <p>{{ object.email }}</p>
+                    <p>{{ object.department.name }}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock body_block %}
-
-
-
-{% comment %} <h1>Detalle de un empelado {{ titulo }}</h1>
-{{ empleado }}
-
-<h3>Todos los datos:</h3>
-<p>{{ empleado.first_name }}</p>
-<p>{{ empleado.last_name }}</p>
-<p>{{ empleado.departamento }}</p>
-<p>{{ empleado.habilidades }}</p> {% endcomment %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1>Detalle de Empleado</h1>
-
-{{object}}
-
-<h3>Todos los datos</h3>
-<p>{{object.first_name}}</p>
-<p>{{object.last_name}}</p>
-<p>{{object.department}}</p>

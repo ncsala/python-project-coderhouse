@@ -8,3 +8,9 @@
 * Entrar a cualquiera de ellas y primero crear algunos itemos, tanto en departamentos como empleados.
 * Luego entrar a listar para ver el listado completo de los items ingresados, o para buscar algun item en particular.
 * Los estilos estan guardados en la carpeta static en la aplicacion 'inicio'
+
+
+
+*clonar
+*pipenv shell
+*createsuperuser

@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import User
 
@@ -112,3 +113,17 @@ class VerificationForm(forms.Form):
                 raise forms.ValidationError('Él codigo de verificación es incorrecto')
         else:
             raise forms.ValidationError('Él codigo de verificación es incorrecto')
+        
+# @login_required
+# class EditarUsuarioForm(UserCreationForm):
+    
+#     first_name = forms.CharField(label='Nombre')
+#     last_name = forms.CharField(label='Apellido')
+#     # email = forms.EmailField(label='Editar Email')
+#     # gender = forms.CharField(label='Género')
+#     # avatar_users = forms.ImageField(label='Imagen')
+    
+#     class Meta:
+#         model = User
+#         fields = ['first_name', 'last_name']
+#         help_texts = {k: '' for k in fields}

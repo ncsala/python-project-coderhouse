@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pillow = "*"
+django-phonenumber-field = "*"
+django-phonenumbers = "*"
 
 [dev-packages]
 

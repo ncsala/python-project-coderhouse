@@ -1,15 +1,35 @@
 {% extends 'employees/home_employees.html' %}
 
 {% block head_block %}
-<title>Listado de Empleados</title>
+<title>Registro de Empleado</title>
 {% endblock head_block %}
 
 {% block body_block %}
-    <h1 class="cell">Registrar Empleados</h1>
 
-    <div class="cell">
+    <div class="grid-container">
+        <h1 class="cell">Registrar Empleados</h1>
+        
+        <div class="cell">
+            <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="button success">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock body_block %}
+
+
+    
+    
+    {% comment %} <div class="cell">
         <form class="formulario formulario--empleados" method='POST'> {% csrf_token %}
-            <fieldset class="formulario__fieldset">
+            {{form.as_table}}
+            <input type="submit" value="Confirmar"/>
+
+
+
+             <fieldset class="formulario__fieldset"> 
                 <legend class="formulario__legend">MODIFIQUE LOS CAMPOS QUE DESEA ACTUALIZAR</legend>
                 <div class="formulario__contenedorCampos__campo">
                     <label class="formulario__campo__label" for="text">Nombre {{form.first_name}}</label>
@@ -26,8 +46,6 @@
                 <div class="contenedorBotones">
                     <button class="contenedorBotones__boton contenedorBotones__boton--widht100" type="submit">Aceptar</button>
                 </div>
-            </fieldset>
+            </fieldset> 
         </form>
-    </div>
-{% endblock body_block %}
-
+    </div> {% endcomment %}

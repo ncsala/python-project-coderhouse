@@ -2,10 +2,11 @@ from django.http.response import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.views.generic.edit import FormView, View
+from django.views.generic.edit import FormView, UpdateView, View
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
-from django.contrib.auth import authenticate, login, logout
 
 from .functions import code_generator
 from .forms import *
@@ -113,3 +114,17 @@ class CodeVerificationView(FormView):
         User.objects.filter(id=self.kwargs['pk']).update(is_active=True)
         
         return super(CodeVerificationView, self).form_valid(form)
+    
+class UsersUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'users/editar_user.html'
+    model = User
+    login_url = reverse_lazy('url-login-usuario')
+    
+    fields = [
+            'first_name', 
+            'last_name', 
+            'gender',
+            ]
+    
+    success_url = reverse_lazy('url-profile-usuario')
+    

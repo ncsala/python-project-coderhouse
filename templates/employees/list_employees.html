@@ -58,13 +58,13 @@
                     {% endif %}
 
                     {% for pagina in paginator.page_range %}
-                    {% ifequal pagina page_obj.number%}
-                        <li class="current"><span class="show-for-sr">You're on page</span>{{pagina}}</li>
+                        {% if pagina == page_obj.number%}
+                            <li class="current"><span class="show-for-sr">You're on page</span>{{pagina}}</li>
                         {% else %}
                             <li>
                                 <a href="?page={{pagina}}" aria-label="Page 2">{{pagina}}</a>
                             </li>
-                        {% endifequal %}
+                        {% endif %}
                     {% endfor %}
 
                     {% if page_obj.has_next %}
