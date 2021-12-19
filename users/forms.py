@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth import authenticate
-from django.contrib.auth.forms import UserCreationForm
 
 from .models import User
 
@@ -11,7 +10,7 @@ class UserRegisterForm(forms.ModelForm):
         required=True,
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Contraseña'
+                'placeholder': 'Ingrese Contraseña'
             }
         )
     )
@@ -21,7 +20,7 @@ class UserRegisterForm(forms.ModelForm):
         required=True,
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Repetir Contraseña'
+                'placeholder': 'Ingrese Contraseña Repetida'
             }
         )
     )
@@ -44,11 +43,11 @@ class UserRegisterForm(forms.ModelForm):
             
 class LoginForm(forms.Form):
     username = forms.CharField(
-        label='username',
+        label='Nombre de Usuario',
         required=True,
         widget=forms.TextInput(
             attrs={
-                'placeholder': 'usernmae',
+                'placeholder': 'Nombre de usuario',
             }
         )
     )
@@ -57,7 +56,7 @@ class LoginForm(forms.Form):
         required=True,
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'contraseña'
+                'placeholder': 'Contraseña'
             }
         )
     )
@@ -73,25 +72,64 @@ class LoginForm(forms.Form):
         return self.cleaned_data
     
 class UpdatePasswordForm(forms.Form):
+    
+    username1 = forms.CharField(
+        label='Nombre de Usuario',
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Nombre de usuario',
+            }
+        )
+    )
 
     password1 = forms.CharField(
         label='Contraseña Actual',
         required=True,
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Contraseña Actual'
+                'placeholder': 'Ingrese Contraseña Actual'
             }
         )
     )
+    
     password2 = forms.CharField(
         label='Contraseña Nueva',
         required=True,
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Contraseña Nueva'
+                'placeholder': 'Ingrese Contraseña Nueva'
             }
         )
     )
+    
+    password3 = forms.CharField(
+        label='Repetir Contraseña Nueva',
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder': 'Ingrese Contraseña Repetida'
+            }
+        )
+    )
+    
+    def clean(self):
+        cleaned_data = super(UpdatePasswordForm, self).clean()
+        
+        username1 = self.cleaned_data['username1']
+        password1 = self.cleaned_data['password1']
+        
+        if not authenticate(username=username1, password=password1):
+            raise forms.ValidationError('La contraseña o el usuario actual no son correctos')
+    
+        return self.cleaned_data
+    
+    
+    def clean_password3(self):
+        if self.cleaned_data['password2'] != self.cleaned_data['password3']:
+            self.add_error('password3', 'Las contraseñas no coinciden')
+        elif len(self.cleaned_data['password2']) < 4:
+            self.add_error('password2', 'La contraseña debe ser mayor a 3 dígitos')
     
 class VerificationForm(forms.Form):
     registration_code = forms.CharField(required=True)
@@ -114,16 +152,3 @@ class VerificationForm(forms.Form):
         else:
             raise forms.ValidationError('Él codigo de verificación es incorrecto')
         
-# @login_required
-# class EditarUsuarioForm(UserCreationForm):
-    
-#     first_name = forms.CharField(label='Nombre')
-#     last_name = forms.CharField(label='Apellido')
-#     # email = forms.EmailField(label='Editar Email')
-#     # gender = forms.CharField(label='Género')
-#     # avatar_users = forms.ImageField(label='Imagen')
-    
-#     class Meta:
-#         model = User
-#         fields = ['first_name', 'last_name']
-#         help_texts = {k: '' for k in fields}

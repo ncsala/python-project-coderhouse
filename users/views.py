@@ -65,6 +65,7 @@ class LoginUser(FormView):
             password=form.cleaned_data['password']
         )
         login(self.request, user)
+        
         return super(LoginUser, self).form_valid(form)
 
 class LogoutView(View):
@@ -121,6 +122,7 @@ class UsersUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('url-login-usuario')
     
     fields = [
+            'username',
             'first_name', 
             'last_name', 
             'gender',
