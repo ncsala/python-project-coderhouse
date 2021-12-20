@@ -11,6 +11,6 @@
 
 
 
-*clonar
-*pipenv shell
-*createsuperuser
+* clonar
+* pipenv shell
+* createsuperuser
