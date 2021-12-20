@@ -1,8 +1,8 @@
-{% extends 'employees/home_employees.html' %}
+{% extends 'inicio/index.html' %}
 
-{% block head_block %}
+{% block title %}
 <title>Listado de Empleados</title>
-{% endblock head_block %}
+{% endblock title%}
 
 {% block body_block %}
 
@@ -16,7 +16,6 @@
         <button type="submit" class="alert button">Confirmar</button>
         <a class="button primary" href="{% url 'url-empleados'  %}">Cancelar</a>
     </form> 
-
 </div>
 
 {% endblock body_block %}

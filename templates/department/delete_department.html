@@ -1,0 +1,21 @@
+{% extends 'inicio/index.html' %}
+
+{% block title %}
+<title>Borrar Departamento</title>
+{% endblock title%}
+
+{% block body_block %}
+    <div class="grid-container">
+        <form method="POST"> {% csrf_token %}
+            <h1>Borrar Departamento</h1>
+            <div class="callout alert">
+                <h5>¿Esta seguro que desea eliminar al siguiente departamento?</h5>
+                <p>{{object}}</p>
+            </div>
+            <button type="submit" class="alert button">Confirmar</button>
+            <a class="button primary" href="{% url 'url-departamentos'  %}">Cancelar</a>
+        </form> 
+    </div>
+{% endblock body_block %}
+
+

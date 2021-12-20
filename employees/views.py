@@ -35,11 +35,11 @@ class ListEmployees(ListView):
         queryset = Employee.objects.search_employee(palabra_clave)
         return queryset
 
-class ListEmployeesAdmin(ListView):
-    template_name = 'employees/admin_employees.html'
-    context_object_name = 'employees'
-    paginate_by = 10
-    model = Employee
+# class ListEmployeesAdmin(ListView):
+#     template_name = 'employees/admin_employees.html'
+#     context_object_name = 'employees'
+#     paginate_by = 10
+#     model = Employee
         
         
 class CreateEmployee(CreateView):

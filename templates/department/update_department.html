@@ -1,23 +1,21 @@
 {% extends 'inicio/index.html' %}
 
 {% block title %}
-<title>Registro de Empleado</title>
+<title>Actualizar Departamento</title>
 {% endblock title%}
 
 {% block body_block %}
-
     <div class="grid-container">
-        <h1 class="cell">Registrar Empleados</h1>
+        <h1 class="cell">Actualizar Datos de Departamento</h1>
         
         <div class="cell">
             <form method="POST" enctype="multipart/form-data">{% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="button success">Registrar</button>
+                <button type="submit" class="button success">
+                    Actualizar
+                </button>
             </form>
         </div>
     </div>
-
 {% endblock body_block %}
 
-
-    

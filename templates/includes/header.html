@@ -22,16 +22,22 @@
                     <li><a href="{% url 'url-departamentos' %}">Listar Departamentos</a></li>
                     <li><a href="{% url 'url-crear-departamentos' %}">Alta Departamentos</a></li>
                 </ul>
-        </ul>
+                <li><a href="{% url 'url-about' %}">Acerca de mí</a></li>
+            </ul>
     </div>
     <div class="top-bar-right">
         <ul class="menu">
-            <li><a href="{% url 'url-crear-departamentos' %}">Acerca de mí</a></li>
             <li>
                 {% comment %} <input type="search" placeholder="Search"><a class="button success" href="{% url 'url-empleados' %}">Más detalles</a></input> {% endcomment %} 
             </li>
             {% if not user.is_anonymous %}
-                <li><a class="button warning button-login" href="{% url 'url-profile-usuario' %}">Perfil</a></li>
+            <li style="margin-top:5px; color:white; margin-right:5px; ">Bienvenido:{{request.user.username}}</li>
+                <li> 
+                    <a class="button warning button-login" href="{% url 'url-profile-usuario' %}">
+                        
+                        Perfil
+                    </a>
+                </li>
             {% else %}
                 <a class="button success button-login" href="{% url 'url-login-usuario'%}">Acceder</a>
             {% endif %}

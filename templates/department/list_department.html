@@ -1,8 +1,8 @@
-{% extends 'department/home_department.html' %}
+{% extends 'inicio/index.html' %}
 
-{% block head_block %}
+{% block title %}
 <title>Listado de Departamentos</title>
-{% endblock head_block %}
+{% endblock title%}
 
 {% block body_block %}
 
@@ -31,22 +31,6 @@
                     </div>
                 </fieldset>
             </form> 
-            
-            <ul>
-            
-                {% comment %} {% if departamentos %} 
-                    {% for departamento in departamentos %}
-                        <li>
-                            {{departamento}}
-                        </li>
-                    {% endfor %}
-                {% elif error%}
-                    <h3>{{error}}</h3>
-                {% else %}
-                    <h3>No se encontraron departamentos con ese nombre.</h3>
-                {% endif %} {% endcomment %}
-            
-            </ul> 
         
         {% if departamentos %} 
             <table class="cell">
@@ -65,8 +49,8 @@
                         <td>{{departamento.name}}</td>
                         <td>{{departamento.short_name}}</td>
                         <td>
-                            <a class="button warning" href="">Editar</a>
-                            <a class="button alert" href="">Eliminar</a>
+                            <a class="button warning" href="{% url 'url-actualizar-departamentos' departamento.id %}">Editar</a>
+                            <a class="button alert" href="{% url 'url-eliminar-departamentos' departamento.id %}">Eliminar</a>
                         </td>
                     </tr>
                     {% endfor %}

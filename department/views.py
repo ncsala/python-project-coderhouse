@@ -1,5 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
+from django.urls.base import reverse_lazy
+from django.views.generic.edit import DeleteView, UpdateView
+
 from department.forms import DepartmentForm
 from department.models import Department
 
@@ -40,4 +44,23 @@ def create_department(request):
     
     return render(request,'department/create_department.html', {'formulario': formulario})
     
+    
 
+class DeleteDepartment(LoginRequiredMixin, DeleteView):
+    template_name = 'department/delete_department.html'
+    model = Department
+    login_url = reverse_lazy('url-login-usuario')
+    
+    success_url = reverse_lazy('url-departamentos')
+    
+class DepartmentUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'department/update_department.html'
+    model = Department
+    login_url = reverse_lazy('url-login-usuario')
+    
+    fields = [
+            'name', 
+            'short_name', 
+            ]
+    
+    success_url = reverse_lazy('url-departamentos')
