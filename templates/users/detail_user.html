@@ -1,0 +1,28 @@
+{% extends 'employees/home_employees.html' %}
+{% load static %}
+
+{% block head_block %}
+    <title>Datos de Usuario</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1 class="cell">Datos de Usuario</h1>
+
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x align-center">
+            <div class="cell large-8 card" style="width: 500px; margin-top: 10px;">
+                {% if object.avatar_employees %}
+                    <img src="#">
+                {% else %}
+                <img src="{% static 'images/rh3.jpg' %}">
+                {% endif %}
+                <div class="card-section">
+                    <h4>Nombre de usuario: {{ object.username }}</h4>
+                    <p>Email: {{ object.email }}</p>
+                    <p>Nombre completo: {{ object.get_full_name }}</p>
+                    <p>Género: {{ object.get_gender_display }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body_block %}

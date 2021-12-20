@@ -10,14 +10,14 @@
 
     <div class="grid-container">
         <div class="grid-x grid-margin-x align-center">
-            <div class="cell large-8 card" style="width: 300px; margin-top: 10px;">
+            <div class="cell large-8 card" style="width: 500px; margin-top: 10px;">
                 <div class="card-divider">
                     {{ object.position }}
                 </div>
                 {% if object.avatar_employees %}
                     <img src="{{ object.avatar_employees.url }}">
                 {% else %}
-                <img src="{% static 'images/rh3.jpg' %}">
+                    <img src="{% static 'images/rh3.jpg' %}">
                 {% endif %}
 
                 <div class="card-section">

@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 from department.models import Department
+from .manager import EmployeeManager
 
 
 # Create your models here.
@@ -15,6 +16,9 @@ class Employee(models.Model):
     position = models.CharField(max_length=50)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     avatar_employees = models.ImageField(upload_to='employees', blank=True, null=True)
+    
+    objects = EmployeeManager()
+    
     
     def __str__(self):
         return f'Empleado {self.id} - {self.first_name} - {self.last_name} - {self.position} - {self.department}' 

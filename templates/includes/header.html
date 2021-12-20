@@ -6,7 +6,6 @@
 <div class="top-bar" id="responsive-menu">
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-            {% comment %} <li class="menu-text"><a href={% url 'url-inicio'  %}>Sistema de Recursos Humanos</a></li> {% endcomment %}
             <li>
                 <a class="home" href={% url 'url-inicio'  %}>Sistema de Recursos Humanos</a>
             </li>
@@ -27,7 +26,10 @@
     </div>
     <div class="top-bar-right">
         <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
+            <li><a href="{% url 'url-crear-departamentos' %}">Acerca de mí</a></li>
+            <li>
+                {% comment %} <input type="search" placeholder="Search"><a class="button success" href="{% url 'url-empleados' %}">Más detalles</a></input> {% endcomment %} 
+            </li>
             {% if not user.is_anonymous %}
                 <li><a class="button warning button-login" href="{% url 'url-profile-usuario' %}">Perfil</a></li>
             {% else %}

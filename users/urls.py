@@ -9,7 +9,6 @@ urlpatterns = [
     path('profile/', UserProfile.as_view(), name='url-profile-usuario'),
     path('pwd-update/', UpdatePasswordView.as_view(), name='url-update-pwd-usuario'),
     path('verification/<pk>/', CodeVerificationView.as_view(), name='url-verification'),
+    path('ver-usuario/<pk>', UserDetailView.as_view(), name='url-ver-usuario'),
     path('editar-usuario/<pk>', UsersUpdateView.as_view(), name='url-editar-usuario'),
-    # path('editar-usuario/', editar_user, name='url-editar'),
-    
 ]

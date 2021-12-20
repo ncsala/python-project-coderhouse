@@ -1,10 +1,9 @@
 from django.http.response import HttpResponseRedirect
 from django.core.mail import send_mail
-from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, UpdateView, View
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 
@@ -53,6 +52,10 @@ class UserRegisterView(FormView):
 class UserProfile(LoginRequiredMixin, TemplateView):
     template_name = "users/user_profile.html"
     login_url = reverse_lazy('url-login-usuario')
+    
+class UserDetailView(DetailView):
+    model = User
+    template_name = 'users/detail_user.html'
 
 class LoginUser(FormView):
     template_name = 'users/login.html'

@@ -11,18 +11,29 @@ def information_employees(request):
     return render(request,'employees/home_employees.html', {})
     
 
+# class ListEmployees(ListView):
+#     template_name = 'employees/list_employees.html'
+#     context_object_name = 'employees'
+#     paginate_by = 10
+    
+#     def get_queryset(self):
+#         palabra_clave = self.request.GET.get('kword', '')
+#         lista = Employee.objects.filter(
+#             full_name__icontains = palabra_clave
+#         )
+#         return lista
+
 class ListEmployees(ListView):
     template_name = 'employees/list_employees.html'
     context_object_name = 'employees'
     paginate_by = 10
-    
+        
     def get_queryset(self):
         palabra_clave = self.request.GET.get('kword', '')
-        lista = Employee.objects.filter(
-            last_name__icontains = palabra_clave
-        )
-        return lista
-
+        # order = self.request.GET.get("order", '')
+        
+        queryset = Employee.objects.search_employee(palabra_clave)
+        return queryset
 
 class ListEmployeesAdmin(ListView):
     template_name = 'employees/admin_employees.html'
@@ -47,6 +58,13 @@ class CreateEmployee(CreateView):
     
     # Para que redireccione cuando se ha completado correctamente
     success_url = reverse_lazy('url-empleados')
+    
+    def form_valid(self, form):
+        employee = form.save(commit=False)
+        employee.full_name = employee.first_name + ' ' + employee.last_name
+        employee.save()
+        
+        return super(CreateEmployee, self).form_valid(form)
 
 
 class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
@@ -79,76 +97,3 @@ class EmployeeDetailView(DetailView):
     model = Employee
     template_name = 'employees/detail_employee.html'
 
-
-# def list_employees(request):
-#     empleados = None
-#     error = None
-    
-#     if request.method == 'GET':
-#         nombre = request.GET.get('nombre_buscado', '')
-        
-#         if nombre == '':
-#             empleados = Employee.objects.all()
-#         else:
-#             try:
-#                 empleados = Employee.objects.filter(first_name=nombre)
-#             except:
-#                 error = 'Debe ingresar un nombre valido.'
-
-#     return render(request,'employees/list_employees.html', {'empleados': empleados, 'error': error})
-
-# def create_employees(request, id):
-#     id_empleado = 0
-#     try:
-#         empleado = Employee.objects.get(id=id)
-#         id_empleado = empleado.id
-#     except Exception as e:
-#         empleado = None
-    
-#     if request.method == 'POST':
-#         formulario = EmpleadosFormulario(request.POST)
-        
-#         if formulario.is_valid():
-#             datos = formulario.cleaned_data
-#             empleado = Employee(first_name=datos['first_name'], last_name=datos['last_name'], position=datos['position'])
-#             empleado.save()
-#             return redirect('url-empleados')
-#     elif empleado:
-#         formulario = EmpleadosFormulario({'first_name':empleado.first_name, 'last_name':empleado.last_name, 'position':empleado.position})
-#     else:
-#         id_empleado = 0
-#         formulario = EmpleadosFormulario()
-    
-#     return render(request,'employees/create_employees.html', {'empleado': empleado, 'formulario': formulario, 'idempleado': id_empleado})
-
-# def list_chiefs(request):
-    
-    # jefes = None
-    # error = None
-    
-    # if request.method == 'GET':
-    #     nombre = request.GET.get('nombre_buscado', '')
-        
-    #     if nombre == '':
-    #         jefes = Chief.objects.all()
-    #     else:
-    #         try:
-    #             jefes = Chief.objects.filter(first_name=nombre)
-    #         except:
-    #             error = 'Debe ingresar un nombre valido.'
-
-    # return render(request,'employees/list_chiefs.html', {'jefes': jefes, 'error': error})
-
-# def create_chiefs(request):
-    # if request.method == 'POST':
-    #     formulario = ChiefsForm(request.POST)
-        
-    #     if formulario.is_valid():
-    #         datos = formulario.cleaned_data
-    #         jefe = Chief(first_name=datos['first_name'], last_name=datos['last_name'])
-    #         jefe.save()
-    #         return redirect('url-jefes')
-    
-    # formulario = ChiefsForm()
-    
-    # return render(request,'employees/create_chiefs.html', {'formulario': formulario})
