@@ -1,4 +1,5 @@
 from django.http.response import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 from django.core.mail import send_mail
 from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView

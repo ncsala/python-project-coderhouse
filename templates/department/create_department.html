@@ -5,9 +5,13 @@
 {% endblock title%}
 
 {% block body_block %}
-    <h1 class="cell">Crear Departamentos</h1>
-
     <div class="grid-container">
+        <h1 class="cell">Crear Departamentos</h1>
+
+        {% if error %} 
+            <h3 class="cell">{{error}}</h3>
+        {% endif %} 
+
         <div class="cell">
             <form action={% url 'url-crear-departamentos' %} method="POST">
                 {% csrf_token %}

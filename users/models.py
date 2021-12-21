@@ -19,7 +19,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
 
     username = models.CharField(max_length=15, unique=True)
-    email = models.EmailField(unique=True)
+    # despues puedo cambiar a unique para que el mail no se repita
+    email = models.EmailField()
     first_name = models.CharField(max_length=40, blank=True)
     last_name = models.CharField(max_length=40, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)

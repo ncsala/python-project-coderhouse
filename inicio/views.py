@@ -10,3 +10,4 @@ def HomeView(request):
 
 class AboutView(TemplateView):
     template_name = "inicio/about.html"
+    

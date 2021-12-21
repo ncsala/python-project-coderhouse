@@ -7,17 +7,7 @@
     <div class="grid-container">
         <div class="callout secondary">
         <h2>Acerca de mí</h2>
-        <p style="font-size: 20px;">El presente trabajo es un proyecto creado para el curso de Python de Coderhouse en el año 2021. Se trata del Back End de una pequeña aplicación para administrar los recursos humanos de una empresa. En la misma se puede altar empleados con sus respectivos datos personales y en el departamento de la empresa que trabaja. Esta creada con las tecnologías HTML, CSS, Foundation, Python y Django</p>
+        <p style="font-size: 20px;">Hola, mi nombre es Nicolás Cáceres Sala y el presente trabajo es un proyecto creado para el curso de Python de Coderhouse en el año 2021. Se trata del Back End de una pequeña aplicación para administrar los recursos humanos de una empresa. En la misma se puede altar empleados con sus respectivos datos personales y en el departamento de la empresa que trabaja. Esta creada con las tecnologías HTML, CSS, Foundation, Python y Django</p>
         </div>
     </div>
 {% endblock body_block %}
-
-    <form method="POST"> {% csrf_token %}
-        <h1>Baja de Empleado</h1>
-        <div class="callout alert">
-            <h5>¿Esta seguro que desea eliminar al siguiente empleado?</h5>
-            <p>{{object}}</p>
-        </div>
-        <button type="submit" class="alert button">Confirmar</button>
-        <a class="button primary" href="{% url 'url-empleados'  %}">Cancelar</a>
-    </form> 

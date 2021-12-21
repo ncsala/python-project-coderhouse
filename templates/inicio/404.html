@@ -1,0 +1,29 @@
+
+
+    
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="es">
+        
+        <head>
+            <link href="{% static 'css/foundation.css' %}" rel="stylesheet" />
+            <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            {% block title %} <title>Home </title>{% endblock title %}
+            <script src="https://kit.fontawesome.com/09861335cf.js" crossorigin="anonymous"></script>
+        </head>
+    <div class="grid-container">
+            
+        <div class="callout secondary">
+            <h1>ERROR 404</h1>
+            
+            <p>Ops no encontramos lo que buscas, te sugerimos que vuelvas al 
+                <a href="{% url 'url-inicio'  %}">
+                    HOME
+                </a> y pruebes encontrar allí lo que buscás.
+            </p>
+        </div>
+    </div> 
+</html>

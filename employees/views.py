@@ -11,18 +11,6 @@ def information_employees(request):
     return render(request,'employees/home_employees.html', {})
     
 
-# class ListEmployees(ListView):
-#     template_name = 'employees/list_employees.html'
-#     context_object_name = 'employees'
-#     paginate_by = 10
-    
-#     def get_queryset(self):
-#         palabra_clave = self.request.GET.get('kword', '')
-#         lista = Employee.objects.filter(
-#             full_name__icontains = palabra_clave
-#         )
-#         return lista
-
 class ListEmployees(ListView):
     template_name = 'employees/list_employees.html'
     context_object_name = 'employees'
@@ -35,12 +23,6 @@ class ListEmployees(ListView):
         queryset = Employee.objects.search_employee(palabra_clave)
         return queryset
 
-# class ListEmployeesAdmin(ListView):
-#     template_name = 'employees/admin_employees.html'
-#     context_object_name = 'employees'
-#     paginate_by = 10
-#     model = Employee
-        
         
 class CreateEmployee(CreateView):
     template_name = 'employees/create_employees.html'

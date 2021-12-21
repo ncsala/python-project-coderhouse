@@ -31,15 +31,20 @@ def list_department(request):
     return render(request,'department/list_department.html', {'departamentos': departamentos, 'error': error})
 
 def create_department(request):
+    
     if request.method == 'POST':
         formulario = DepartmentForm(request.POST)
         
         if formulario.is_valid():
             datos = formulario.cleaned_data
             departamento = Department(name=datos['name'], short_name=datos['short_name'])
-            departamento.save()
-            return redirect('url-departamentos')
-    
+            try:
+                departamento.save()
+                return redirect('url-departamentos')
+            except:
+                error = 'El departamento que quiere ingresar esta repetido.'
+                return render(request,'department/create_department.html', {'formulario': formulario, 'error': error})
+                
     formulario = DepartmentForm()
     
     return render(request,'department/create_department.html', {'formulario': formulario})

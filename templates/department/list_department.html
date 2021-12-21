@@ -57,11 +57,10 @@
                 </tbody>
             </table>
         {% elif error%}
-        <h3>{{error}}</h3>
-                {% else %}
-                    <h3>No se encontraron departamentos con ese nombre.</h3>
-                {% endif %} 
-
+            <h3>{{error}}</h3>
+        {% else %}
+            <h3>No se encontraron departamentos con ese nombre.</h3>
+        {% endif %} 
         </div>
         
 
