@@ -16,19 +16,22 @@ def information_department(request):
 def list_department(request):
     departamentos = None
     error = None
+    mensaje = None
     
     if request.method == 'GET':
         nombre = request.GET.get('nombre_buscado', '')
         
         if nombre == '':
             departamentos = Department.objects.all()
+            if not departamentos:
+                mensaje = 'Aun no hay departamentos ingresados'
         else:
             try:
                 departamentos = Department.objects.filter(name=nombre)
             except:
                 error = 'Debe ingresar un departamento valido.'
 
-    return render(request,'department/list_department.html', {'departamentos': departamentos, 'error': error})
+    return render(request,'department/list_department.html', {'departamentos': departamentos, 'error': error, 'mensaje':mensaje})
 
 def create_department(request):
     

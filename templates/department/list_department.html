@@ -59,7 +59,11 @@
         {% elif error%}
             <h3>{{error}}</h3>
         {% else %}
-            <h3>No se encontraron departamentos con ese nombre.</h3>
+            {% if mensaje %}
+                {{mensaje}}
+            {% else %}
+                <h3>No se encontraron departamentos con ese nombre</h3> 
+            {% endif %}    
         {% endif %} 
         </div>
         
