@@ -31,7 +31,7 @@
                 {% comment %} <input type="search" placeholder="Search"><a class="button success" href="{% url 'url-empleados' %}">Más detalles</a></input> {% endcomment %} 
             </li>
             {% if not user.is_anonymous %}
-            <li style="margin-top:5px; color:white; margin-right:5px; ">Bienvenido:{{request.user.username}}</li>
+                <li style="margin-top:5px; color:white; margin-right:5px; ">Bienvenido:{{request.user.username}}</li>
                 <li> 
                     <a class="button warning button-login" href="{% url 'url-profile-usuario' %}">
                         
@@ -40,8 +40,8 @@
                 </li>
             {% else %}
                 <a class="button success button-login" href="{% url 'url-login-usuario'%}">Acceder</a>
+                <a class="button primary" href="{% url 'url-registro-usuario'%}">Registro</a>
             {% endif %}
-            <a class="button primary" href="{% url 'url-registro-usuario'%}">Registro</a>
         </ul>
     </div>
 </div>
