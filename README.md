@@ -4,10 +4,11 @@ El presente trabajo es un proyecto creado para el curso de Python de Coderhouse 
 
 # Pasos para trabajar con el proyecto
 * git clone 
+* pipenv install 
 * pipenv shell
-* pipenv install requirements
 * py manage.py migrate
 * py manage.py createsuperuser
 * py manage.py runserver
-* 
  
+Enlace al video explicación:
+https://youtu.be/C7j67l8HHxY
