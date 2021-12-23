@@ -1,5 +1,4 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls.base import reverse_lazy
 from django.views.generic.edit import DeleteView, UpdateView
@@ -33,6 +32,7 @@ def list_department(request):
 
     return render(request,'department/list_department.html', {'departamentos': departamentos, 'error': error, 'mensaje':mensaje})
 
+@login_required
 def create_department(request):
     
     if request.method == 'POST':
