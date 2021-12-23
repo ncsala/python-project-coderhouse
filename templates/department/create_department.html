@@ -16,7 +16,8 @@
             <form action={% url 'url-crear-departamentos' %} method="POST">
                 {% csrf_token %}
                 {{formulario.as_table}}
-                <input type="submit" class="button primary" value="Crear"/>
+                <input type="submit" class="button success" value="Crear"/>
+                <a class="button primary" href="{% url 'url-inicio'  %}">Cancelar</a>
             </form>
         </div>
     </div>

@@ -11,9 +11,8 @@
         <div class="cell">
             <form method="POST" enctype="multipart/form-data">{% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="button success">
-                    Actualizar
-                </button>
+                <button type="submit" class="button success">Actualizar</button>
+                <a class="button primary" href="{% url 'url-departamentos'  %}">Cancelar</a>
             </form>
         </div>
     </div>
