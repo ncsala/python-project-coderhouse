@@ -32,7 +32,6 @@ def list_department(request):
 
     return render(request,'department/list_department.html', {'departamentos': departamentos, 'error': error, 'mensaje':mensaje})
 
-@login_required
 def create_department(request):
     
     if request.method == 'POST':
