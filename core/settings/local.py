@@ -34,5 +34,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'python.project.coderhouse@gmail.com'
-EMAIL_HOST_PASSWORD = 'mehackearonlacuenta35'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
